@@ -23,10 +23,10 @@ public class MyF_Test extends TestBase {
 
     @Test
     public void myFirstTest() {
-        driver.get("http://www.google.com/");
-        driver.findElement(By.name("q")).sendKeys("webdriver");
-        driver.findElement(By.className("lsb")).click();
-        wait.until(titleIs("webdriver - Поиск в Google"));
+        driver.get("https://yandex.ru/");
+        driver.findElement(By.id("text")).sendKeys("турагентства москва");
+        driver.findElement(By.className("search2__button")).click();
+        wait.until(titleIs("турагентства москва — Яндекс: нашлось 66 млн результатов"));
     }
 
     /* @After
