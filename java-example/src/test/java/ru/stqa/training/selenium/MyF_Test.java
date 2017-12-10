@@ -5,31 +5,32 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 
-public class MyF_Test extends TestBase {
+public class MyF_Test {
     private WebDriver driver;
     private WebDriverWait wait;
 
     @Before
     public void start () {
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(); //конструирование объекта (инициализация драйвера и браузера)
         wait = new WebDriverWait(driver,10);
     }
 
     @Test
     public void myFirstTest() {
-        driver.get("https://yandex.ru/");
-        driver.findElement(By.id("text")).sendKeys("турагентства москва");
+        driver.get("https://yandex.ru");
+        WebElement q = driver.findElement(By.id("text"));
+        q.sendKeys("интерфакс");
+        //driver.findElement(By.id("text")).sendKeys("интерфакс");
         driver.findElement(By.className("search2__button")).click();
-        wait.until(titleIs("турагентства москва — Яндекс: нашлось 66 млн результатов"));
     }
 
-    /* @After
+    /*@After
     public void stop() {
         driver.quit();
         driver = null;
